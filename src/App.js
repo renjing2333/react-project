@@ -1,18 +1,13 @@
-import './App.css';
-import Home from './components/Home'
-// import { Router} from "react-router-dom"
-import { BrowserRouter as Router, Route } from "react-router-dom";
-// import {appRoutes} from './routes'
-function Com1 () {
-  return <div>111</div>
-}
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-        <Route path="./home" component="./components/Home.js" />
-    </div>
-  );
+class App extends Component {
+  render(){
+    return (
+      <div>
+        <h1>{false ? '哈哈哈' : '嘻嘻嘻'}</h1>
+      </div>
+    )
+  }
 }
 
 export default App;
