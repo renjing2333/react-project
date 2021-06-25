@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Menu from './components/Menu';
+import Cart from './components/Cart';
+import Home from './components/Home';
 
 class App extends Component {
   render(){
     return (
       <div>
-        <h1>{false ? '哈哈哈' : '嘻嘻嘻'}</h1>
+        <Router>
+            <Route path="/cart" component={Cart}></Route>
+            <Route path="/menu" component={Menu}></Route>
+            <Route path="/home" component={Home}></Route>
+        </Router>
       </div>
     )
   }

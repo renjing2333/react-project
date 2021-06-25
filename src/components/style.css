@@ -1,0 +1,9 @@
+.menu_button {
+  margin-top: 20px;
+}
+
+.menu_addBlock {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
