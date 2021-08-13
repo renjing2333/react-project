@@ -3,7 +3,9 @@
 import React, {Component} from 'react'
 import './style.css'
 import InputItem from './InputItem'
+import Test from './Test'
 import axios from 'axios'
+import TodoList from './TodoList'
 
 class App extends Component{
   constructor(props){
@@ -18,10 +20,10 @@ class App extends Component{
   // }
 
   componentDidMount() {
-    console.log('挂载结束阶段');
+    // console.log('挂载结束阶段');
     axios.get('http://localhost:8888/list').then(
       (res) => {
-        console.log('获取数据成功:' + JSON.stringify(res.data));
+        // console.log('获取数据成功:' + JSON.stringify(res.data));
         this.setState({
           list: res.data
         })
@@ -30,7 +32,7 @@ class App extends Component{
   }
 
   shouldComponentUpdate() {
-    console.log('1shouldComponentUpdate---组件发生改变前执行');
+    // console.log('1shouldComponentUpdate---组件发生改变前执行');
     return true
   }
 
@@ -39,7 +41,7 @@ class App extends Component{
   // }
 
   componentDidUpdate(){
-    console.log('4componentDidUpdate----组件更新之后执行')
+    // console.log('4componentDidUpdate----组件更新之后执行')
 }
 
     render(){
@@ -66,6 +68,8 @@ class App extends Component{
                   })
                 }
             </ul> 
+            <Test />
+            <TodoList />
           </div>
         )
     }
@@ -81,7 +85,7 @@ class App extends Component{
         list:[...this.state.list, this.state.inputValue],
         inputValue: ''
       },() => {
-        console.log(this.ul.querySelectorAll('div').length);
+        // console.log(this.ul.querySelectorAll('div').length);
       })
     }
 

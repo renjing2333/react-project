@@ -23,7 +23,7 @@ class InputItem extends Component {
 
 
   componentWillUnmount() {
-    console.log('componentWillUnmount');
+    // console.log('componentWillUnmount');
   }
 
   shouldComponentUpdate(nextProps, nextState) {
