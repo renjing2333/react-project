@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import TodoListUi from './TodoListUI';
-// import 'antd/dist/antd.css'
-// import { Button, Input, List } from 'antd';
 import store from './store'
-// import { CHANGE_INPUT, ADD_TOLIST, DELETE_ITEM } from './store/actionTypes'
-import { changeInputAction, addToListAction, deleteItemAction } from './actionCreators'
+import { changeInputAction, addToListAction, deleteItemAction, getTodoList } from './actionCreators'
 
-const data = [
-  '喂猫粮', '喂罐头', '铲猫屎'
-]
+// const data = [
+//   '喂猫粮', '喂罐头', '铲猫屎'
+// ]
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +20,12 @@ class TodoList extends Component {
   storeChange() {
     this.setState(store.getState())
   }
+
+  componentDidMount() {
+    const action = getTodoList()
+    store.dispatch(action)
+  }
+
   render() {
     return (
       <TodoListUi
