@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
 class Index extends Component {
   constructor(props) {
@@ -11,6 +10,8 @@ class Index extends Component {
         { id: 333, title: '猪猪牌牌333' },
       ]
     }
+    // 编程式重定向
+    // this.props.history.push("/home/");
   }
   componentDidMount() {
     console.log(this.state, 'state');
