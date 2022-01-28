@@ -1,32 +1,33 @@
 import React from 'react';
 import { Checkbox } from 'antd';
+import optionsContext from './Context'
 export default class Tags extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      tagsList: ['吃饭', '睡觉', '打豆豆', '喂牌牌', '和牌牌玩']
+      name: ' 静静',
+      pet: '牌牌',
+      options: [
+        { label: '吃饭', value: '吃饭', done: false },
+        { label: '睡觉', value: '睡觉', done: true },
+        { label: '撸牌牌', value: '撸牌牌', done: false },
+      ]
     }
   }
   render() {
     return (
       <div>
-        <div>
-          {
-            this.state.tagsList.map((item, index) => {
-              return <Checkbox
-                key={index}
-                onChange={this.onChange}
-                style={{ display: 'flex', height: '30px', background: 'white', border: '0.5px solid #C0C0C0', margin: '0px', padding: '5px' }}>
-                {item}
-              </Checkbox>
-            })
-          }
-        </div>
-        <div>{this.props.listData}</div>
+        <optionsContext.Provider value={this.state.name}>
+          <Checkbox.Group
+            key={this.state.options}
+            options={this.state.options}
+            defaultValue={['吃饭']}
+            onChange={this.onChange} />
+        </optionsContext.Provider>
       </div>
     );
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.onRef(this)
   }
   onChange = (checkedValues) => {
@@ -34,6 +35,6 @@ export default class Tags extends React.Component {
   }
   addEvent = (newTag) => {
     console.log(newTag, 'Tags组件里面tags');
-    this.state.tagsList.push(newTag);
+    this.state.options.push({ label: newTag, value: newTag, done: false });
   }
 };
